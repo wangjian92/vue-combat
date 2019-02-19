@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue 示例</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="info in infos">{{info.name}}</li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    infos: [{
+                        name: '鼠标'
+                    }, {
+                        name: '电脑'
+                    }, {
+                        name: '手机'
+                    }]
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
