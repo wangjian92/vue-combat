@@ -10,15 +10,23 @@
 
 <body>
     <div id="app">
+        {{message}}
+
+        <input type="text" v-model="message" name="" id="">
+        <input type="button" @click="change" value="click">
+        <input type="button" @click="change2" value="click2">
         <ul>
             <li v-for="info in infos">{{info.name}}</li>
         </ul>
+        <todo-item></todo-item>
+        <todo-item></todo-item>
+        <todo-item></todo-item>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
 
     <script>
-        new Vue({
+        var app = new Vue({
             el: '#app',
             data() {
                 return {
@@ -28,10 +36,26 @@
                         name: '电脑'
                     }, {
                         name: '手机'
-                    }]
+                    }],
+                    message: "origin message"
                 }
-            }
+            },
+            methods: {
+                /**
+                 * 几种方法的定义方式
+                 */
+                change: function () {
+                    this.message = 'clicked'
+                },
+                change2() {
+                    this.message = 'clicked2'
+                },
+            },
         })
+        Vue.component('todo-item', {
+            template: "<div>this is todo</div>"
+        })
+        app.message = "out message"
     </script>
 
 </body>
